@@ -44,4 +44,4 @@ srun \
 
 run_with_compiler icpc
 echo "icpc intrinsics"
-srun $self_dir/build-icpc/src/intrinsics/intrinsics
+srun $self_dir/build-icpc/src/intrinsics/intrinsics 9876543210 123
