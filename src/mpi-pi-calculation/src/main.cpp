@@ -130,7 +130,7 @@ void benchmark()
 void calculate()
 {
     const auto& mpi_params = my::mpi::Params::get_instance();
-    std::size_t summand_count = std::size_t{1} << 42;
+    std::size_t summand_count = std::size_t{1} << 45;
 
     if (summand_count < mpi_params.process_count())
     {

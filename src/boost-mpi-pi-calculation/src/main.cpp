@@ -119,7 +119,7 @@ void benchmark(const mpi::communicator& world)
 
 void calculate(const mpi::communicator& world)
 {
-    std::size_t summand_count = std::size_t{1} << 42;
+    std::size_t summand_count = std::size_t{1} << 45;
 
     if (summand_count < static_cast<std::size_t>(world.size()))
     {
