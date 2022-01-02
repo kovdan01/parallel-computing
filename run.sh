@@ -9,7 +9,7 @@ run_with_compiler()
         --cpus-per-task=16 \
         --nodes=1 \
         --ntasks=1 \
-        $self_dir/build-$1/openmp/openmp
+        $self_dir/build-$1/src/openmp/openmp
 
     echo "$1 mpi-dot-product"
     srun \
@@ -17,7 +17,7 @@ run_with_compiler()
         --nodes=4 \
         --tasks-per-node=4 \
         --cpus-per-task=1 \
-        $self_dir/build-$1/mpi-dot-product/mpi-dot-product
+        $self_dir/build-$1/src/mpi-dot-product/mpi-dot-product
 
     echo "$1 mpi-pi-calculation"
     srun \
@@ -25,12 +25,12 @@ run_with_compiler()
         --nodes=20 \
         --ntasks-per-node=10 \
         --cpus-per-task=1 \
-        $self_dir/build-$1/mpi-pi-calculation/mpi-pi-calculation
+        $self_dir/build-$1/src/mpi-pi-calculation/mpi-pi-calculation
 
     echo "$1 cuda-dot-product"
     srun \
         --gpus=1 \
-        $self_dir/build-$1/cuda-dot-product/cuda-dot-product
+        $self_dir/build-$1/src/cuda-dot-product/cuda-dot-product
 }
 
 run_with_compiler g++
@@ -40,8 +40,8 @@ srun \
     --nodes=20 \
     --ntasks-per-node=10 \
     --cpus-per-task=1 \
-    $self_dir/build-g++/boost-mpi-pi-calculation/boost-mpi-pi-calculation
+    $self_dir/build-g++/src/boost-mpi-pi-calculation/boost-mpi-pi-calculation
 
 run_with_compiler icpc
 echo "icpc intrinsics"
-srun $self_dir/build-icpc/intrinsics/intrinsics
+srun $self_dir/build-icpc/src/intrinsics/intrinsics
