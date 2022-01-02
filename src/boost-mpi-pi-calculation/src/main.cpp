@@ -50,11 +50,6 @@ mpf_class pi_calculation_mpi(std::size_t summand_count, const mpi::communicator&
 
     mpf_class pi(0.0, PRECISION);
 
-    static_assert(sizeof(unsigned long) == sizeof(mp_limb_t),
-                  "Assume that we can use MPI_UNSIGNED_LONG to mark mp_limb_t variables");
-    static_assert(sizeof(long) == sizeof(mp_exp_t),
-                  "Assume that we can use MPI_LONG_INT to mark mp_exp_t variables");
-
     // TODO: create a user-defined type for GMP float
     if (process_id == ROOT_ID)
     {
