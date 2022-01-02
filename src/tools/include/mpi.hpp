@@ -143,6 +143,12 @@ inline void reduce(const void* sendbuf, void* recvbuf, int count,
     check_code(code);
 }
 
+inline void barrier()
+{
+    code_t code = MPI_Barrier(COMM);
+    check_code(code);
+}
+
 }  // namespace my::mpi
 
 #endif  // PARALLEL_COMPUTING_TOOLS_MPI_HPP_

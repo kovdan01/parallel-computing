@@ -56,6 +56,8 @@ mpf_class pi_calculation_mpi(std::size_t summand_count)
     static_assert(sizeof(long) == sizeof(mp_exp_t),
                   "Assume that we can use MPI_LONG_INT to mark mp_exp_t variables");
 
+    my::mpi::barrier();
+
     // TODO: create a user-defined type for GMP float
     if (my::mpi::is_current_process_root())
     {

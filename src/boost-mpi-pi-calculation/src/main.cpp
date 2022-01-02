@@ -50,6 +50,8 @@ mpf_class pi_calculation_mpi(std::size_t summand_count, const mpi::communicator&
 
     mpf_class pi(0.0, PRECISION);
 
+    world.barrier();
+
     // TODO: create a user-defined type for GMP float
     if (process_id == ROOT_ID)
     {
