@@ -189,7 +189,7 @@ int main(int argc, char* argv[]) try
                 .pi_mpi = pi_leibniz_mpi,
                 .params =
                 {
-                    .precision = (1 << 22),
+                    .precision = (1 << 7),
                     .benchmark_summand_count = std::size_t{1} << 26,
                     .calculation_summand_count = std::size_t{1} << 45
                 }
