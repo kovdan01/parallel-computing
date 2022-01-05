@@ -7,6 +7,7 @@
 #include <cassert>
 #include <cmath>
 #include <iostream>
+#include <functional>
 #include <stdexcept>
 #include <unordered_map>
 
