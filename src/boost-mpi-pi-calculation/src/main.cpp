@@ -14,7 +14,6 @@ namespace mpi = boost::mpi;
 namespace
 {
 
-static constexpr std::size_t ITERATIONS_COUNT = 100;
 static constexpr int ROOT_ID = 0;
 static constexpr int TAG = 0;
 
@@ -98,6 +97,8 @@ void benchmark(std::size_t summand_count,
                RegularPiCalculationFunction pi_regular,
                MPIPiCalculationFunction pi_mpi)
 {
+    static constexpr std::size_t ITERATIONS_COUNT = 100;
+
     if (summand_count < static_cast<std::size_t>(world.size()))
     {
         throw std::runtime_error("Summand count is less than processor count, please decrease number of processors.");

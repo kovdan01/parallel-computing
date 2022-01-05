@@ -15,8 +15,6 @@
 namespace
 {
 
-static constexpr std::size_t ITERATIONS_COUNT = 100;
-
 static_assert(sizeof(std::size_t) == sizeof(unsigned long long),
               "Assume that we can use MPI_UNSIGNED_LONG_LONG to mark std::size_t variables");
 static_assert(sizeof(unsigned long) == sizeof(mp_limb_t),
@@ -112,6 +110,7 @@ void benchmark(std::size_t summand_count,
                RegularPiCalculationFunction pi_regular,
                MPIPiCalculationFunction pi_mpi)
 {
+    static constexpr std::size_t ITERATIONS_COUNT = 100;
     const auto& mpi_params = my::mpi::Params::get_instance();
 
     if (summand_count < mpi_params.process_count())
