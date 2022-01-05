@@ -24,12 +24,14 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(gmpxx REQUIRED IMPORTED_TARGET gmpxx)
 
 find_package(my-benchmark REQUIRED)
+find_package(my-pi-helpers REQUIRED)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE my::benchmark)
+target_link_libraries(${PROJECT_NAME} PRIVATE my::pi-helpers)
 target_link_libraries(${PROJECT_NAME} PRIVATE MPI::MPI_CXX)
 target_link_libraries(${PROJECT_NAME} PRIVATE Boost::mpi)
 target_link_libraries(${PROJECT_NAME} PRIVATE PkgConfig::gmpxx)

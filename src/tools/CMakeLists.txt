@@ -35,4 +35,17 @@ if(PC_BUILD_MPI_DOT_PRODUCT OR PC_BUILD_MPI_PI_CALCULATION)
     )
 endif()
 
+if(PC_BUILD_MPI_PI_CALCULATION OR PC_BUILD_BOOST_MPI_PI_CALCULATION)
+    find_package(PkgConfig REQUIRED)
 
+    pkg_check_modules(gmpxx REQUIRED IMPORTED_TARGET gmpxx)
+
+    add_library(my-pi-helpers SHARED include/pi_helpers.hpp src/pi_helpers.cpp)
+    target_compile_features(my-pi-helpers PRIVATE cxx_std_20)
+    target_link_libraries(my-pi-helpers PUBLIC PkgConfig::gmpxx)
+
+    ntc_target(my-pi-helpers
+        ALIAS_NAME my::pi-helpers
+        HEADER_PREFIX my/pi_helpers/
+    )
+endif()
