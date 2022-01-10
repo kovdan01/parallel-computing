@@ -176,9 +176,9 @@ int main(int argc, char* argv[]) try
                 .pi_mpi = pi_bellard_mpi,
                 .params =
                 {
-                    .precision = (1 << 22),
+                    .precision = (1 << 26),
                     .benchmark_summand_count = std::size_t{1} << 8,
-                    .calculation_summand_count = std::size_t{1} << 27
+                    .calculation_summand_count = std::size_t{1} << 22
                 }
             }
         },
@@ -198,7 +198,7 @@ int main(int argc, char* argv[]) try
     };
 
     bool do_benchmark = true;
-    auto algorithm = my::pi::AlgorithmType::BELLARD;
+    auto algorithm = my::pi::AlgorithmType::LEIBNIZ;
 
     const AlgorithmInfo& algorithm_info = algorithm_info_map.at(algorithm);
 
